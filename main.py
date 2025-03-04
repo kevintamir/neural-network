@@ -17,16 +17,10 @@ class NeuralNetwork(nn.Module):
     def forward(self, x):
         return self.fc2(F.relu(self.fc1(x)))
 
-# Check if the shape is correct
-model = NeuralNetwork(784, 10)
-x = torch.rand(64, 784)
-print(model(x).shape)
-
-# Set device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') 
 print(device)
 
-# Set hyperparameters
+# hyperparameters
 input_size = 784
 num_classes = 10
 learning_rate = 0.001
@@ -36,7 +30,6 @@ num_epochs = 1
 # Load data
 train_data = datasets.MNIST(root="dataset/", train=True, transform=transforms.ToTensor(), download=True)
 train_loader = DataLoader(dataset=train_data, batch_size=batch_size, shuffle=True)
-
 test_data = datasets.MNIST(root="dataset/", train=False, transform=transforms.ToTensor(), download=True)
 test_loader = DataLoader(dataset=test_data, batch_size=batch_size, shuffle=True)
 
