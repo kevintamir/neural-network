@@ -83,11 +83,11 @@ import matplotlib.pyplot as plt
 # Test and plot 10 random images
 model.eval()
 with torch.no_grad():
-    fig, axs = plt.subplots(2, 5, figsize=(12, 6))
+    fig, axs = plt.subplots(3, 5, figsize=(12, 6))
     axs = axs.flatten()
 
     for i, (data, labels) in enumerate(test_loader):
-        if i >= 10:  # Break after 10 images
+        if i >= 15:  # Break after 10 images
             break
 
         data = data.to(device=device)
