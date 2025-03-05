@@ -87,7 +87,7 @@ with torch.no_grad():
     axs = axs.flatten()
 
     for i, (data, labels) in enumerate(test_loader):
-        if i >= 15:  # Break after 10 images
+        if i >= 15:  # Break after 15 images
             break
 
         data = data.to(device=device)
